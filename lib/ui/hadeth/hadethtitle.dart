@@ -9,7 +9,7 @@ class Hadthtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return  InkWell(onTap:(){Navigator.pushNamed(context, Hadethcontenttab.routeName,
         arguments:hadeth );},
-        child:Text(hadeth.title,style: TextStyle(fontSize: 25),
+        child:Text(hadeth.title,style: Theme.of(context).textTheme.bodyMedium,
     textAlign: TextAlign.center,
 
     ));

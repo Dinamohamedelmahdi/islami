@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:islami/ui/imageurl.dart';
 class Sebhatab extends StatefulWidget {
 
 
@@ -45,9 +46,9 @@ class _SebhatabState extends State<Sebhatab> {
         Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-            child: Text('عدد التسبيحات',
+            child: Text(getTranslations(context).notasbeh,
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 30
                 ))),
         Container(
             decoration: BoxDecoration(
@@ -56,7 +57,7 @@ class _SebhatabState extends State<Sebhatab> {
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 35),
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             child: Text('${numberOfTasbe7}',
-                style: TextStyle(fontSize: 30)
+                style: TextStyle(fontSize: 30,color: Colors.black)
             )
         ),
         ElevatedButton(

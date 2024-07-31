@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:islami/main.dart';
+import 'package:islami/ui/defaultscreen.dart';
 import 'package:islami/ui/imageurl.dart';
 import 'package:islami/bottomnavigationbaritem.dart';
 import 'package:islami/ui/quran/quran.dart';
 import 'package:islami/ui/hadeth/hadeth.dart';
 import 'package:islami/ui/sebha.dart';
 import 'package:islami/ui/radio.dart';
+import 'package:islami/ui/setting/settingstab.dart';
 
 
 class Homescreen extends StatefulWidget {
@@ -16,31 +18,49 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int selected = 0 ;
+  int selectedindex= 0 ;
 
   @override
   Widget build(BuildContext context) {
     return
 
-      Stack(children:[
-        Image.asset(geturlimage('bg3.png')),
+      Defaultscreen(
+
 
         Scaffold(appBar:
-        AppBar(title: Text('Islami',textAlign:TextAlign.center,),
+        AppBar(title: Text(getTranslations(context).apptitle,textAlign:TextAlign.center,
+          style: Theme.of(context).textTheme.titleMedium,),
         ),
-          body: tabs[selected],
-          bottomNavigationBar:BottomNavigationBar(onTap:
-              (index){selected = index;
-          setState((){});},
 
+          bottomNavigationBar:BottomNavigationBar(onTap:
+              (index){selectedindex = index;
+          setState((){});
+
+
+
+              },
+              currentIndex: selectedindex ,
 
               items: [
-                Bottomnavbaritem('radio','radio.png'),
-                Bottomnavbaritem('sebha','sebha.png'),
-                Bottomnavbaritem('quran','quran.png'),
-                Bottomnavbaritem('hadeth','quran-quran-svgrepo-com.png'),
-              ]) ,)]);
+
+                Bottomnavbaritem(getTranslations(context).qurantab,'quran.png',Theme.of(context).primaryColor),
+                Bottomnavbaritem(getTranslations(context).hadethtab,'hadethtab.png',Theme.of(context).primaryColor),
+
+                Bottomnavbaritem(getTranslations(context).tasbehtab,'sebha.png',Theme.of(context).primaryColor),
+                Bottomnavbaritem(getTranslations(context).radiotab,'radio.png',Theme.of(context).primaryColor),
+               BottomNavigationBarItem(backgroundColor:Theme.of(context).primaryColor,
+                   icon: const Icon(Icons.settings),label: getTranslations(context).settings)
+              ]
+          ) ,
+
+          body: tabs[selectedindex],
+
+
+
+        ));
+
+
   }
 
-  var tabs =[Radiotab(),Sebhatab(),Hadethtab(),Qurantab()];
+  var tabs =[Qurantab(),Hadethtab(),Sebhatab(),Radiotab(),Settingstab()];
 }

@@ -22,7 +22,7 @@ class _HadethtabState extends State<Hadethtab> {
 
 
     return Column(children: [Image.asset("assets/images/"
-        "59253-quran-basmala-islamic-kufic-arabic-calligraphy-icon.png"),
+        "basmala.png"),
       Expanded(child: Allhadeth.isEmpty
       ? Center(child: CircularProgressIndicator())
         : ListView.builder(

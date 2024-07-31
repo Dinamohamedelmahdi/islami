@@ -11,7 +11,7 @@ Chaptersnames(this.title,this.suraindex);
   Widget build(BuildContext context) {
     return InkWell(onTap:(){Navigator.pushNamed(context,Suracontent.routeName,
         arguments:Suraargs(title,suraindex) );},
-        child:Text(title,style: TextStyle(fontSize: 34,fontWeight: FontWeight.bold,),
+        child:Text(title,style: Theme.of(context).textTheme.bodyMedium,
     textAlign: TextAlign.center,));
   }
 }

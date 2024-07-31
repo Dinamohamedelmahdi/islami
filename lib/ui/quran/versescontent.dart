@@ -10,7 +10,7 @@ Versescontent(this.versesindex,this.index);
   Widget build(BuildContext context) {
     return Text(
      '$versesindex {${index + 1 }}',
-      style: TextStyle(fontSize:26 ,color: Colors.black),
+      style: Theme.of(context).textTheme.bodySmall,
       textAlign: TextAlign.center,
       textDirection: TextDirection.rtl,
     );

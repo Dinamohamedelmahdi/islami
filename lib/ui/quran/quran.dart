@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:islami/themeofproject.dart';
 import 'package:islami/ui/imageurl.dart';
 import 'package:islami/ui/quran/chaptersnames.dart';
+
 class Qurantab extends StatelessWidget {
 
   var chapters =["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
@@ -21,12 +23,14 @@ class Qurantab extends StatelessWidget {
     return Column(children: [
       Image.asset(geturlimage('Screenshot (1).png')),
     Divider(thickness: 2,color: Colors.black,indent: 10,endIndent: 10,),
-      Text('Suranames',style: TextStyle(fontSize: 30),),
+      Text(getTranslations(context).chaptertitle,style: Theme.of(context).textTheme.titleMedium,),
       Divider(thickness: 2,color: Colors.black,indent: 10,endIndent: 10,),
       Expanded(child:ListView.separated(
           itemBuilder: (context,index){return Chaptersnames(chapters[index],index);},
           separatorBuilder: (context,index){
-            return Container(width: 15,height: 2,color:Colors.black ,);},
+
+            return Container( margin:EdgeInsets.only(left: 30,right: 30),
+              width: 15,height: 2,color:Themeproject.lightPrimary,);},
           itemCount: chapters.length))
 
     ],);

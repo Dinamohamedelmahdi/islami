@@ -13,7 +13,7 @@ class Hadethcontenttab extends StatelessWidget {
     return Defaultscreen(Scaffold(appBar: AppBar(title: Text(allhadeth.title),),
 
     body: Card(
-        color: Colors.white,
+
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         elevation: 24,
         margin: const EdgeInsets.symmetric(vertical: 64,horizontal: 24),
@@ -25,9 +25,7 @@ class Hadethcontenttab extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Text(allhadeth.Content,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
               ),

@@ -22,7 +22,6 @@ class _SuracontentState extends State<Suracontent> {
       ),
       body: Card(
         elevation: 24,
-        color: Colors.white,
         margin: EdgeInsets.symmetric(vertical: 64, horizontal: 24),
         child: verses.isNotEmpty
             ? ListView.builder(
